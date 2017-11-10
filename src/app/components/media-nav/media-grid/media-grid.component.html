@@ -1,0 +1,33 @@
+<div class="w3-container content-wrapper">
+  <p>
+    <a [routerLink]="['/galery']">
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    </a>
+  </p>
+</div>
+
+
+<div class="grid w3-container content-wrapper" *ngIf="selectedAlbum && hasLoaded">
+
+  <h3 class="desc">
+    <div class="name">{{ selectedAlbum.name }}</div>
+    <div class="description">{{ selectedAlbum.description }}</div>
+  </h3>
+
+  <mat-grid-list [cols]="columnCount" rowHeight="2:1">
+    <mat-grid-tile
+      *ngFor="let item of selectedAlbum.data"
+      [routerLink]="[item.itemId]"
+      >
+
+      <div class="tile">
+        <img [src]="item.src" alt="" width="100%" />
+      </div>
+
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
+
+<div class="loader" *ngIf="!selectedAlbum || !hasLoaded">
+  <mat-spinner></mat-spinner>
+</div>

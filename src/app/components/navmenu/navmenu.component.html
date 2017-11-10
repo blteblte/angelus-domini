@@ -1,0 +1,62 @@
+
+<nav [class]="getIconClass() + ' w3-bar w3-card-1 w3-blue'">
+
+  <div class="content-wrapper">
+    <a class="w3-bar-item btn-menu">
+      <mat-icon (click)="toggleMenu()">menu</mat-icon>
+    </a>
+
+    <a [routerLink]="['/home']" class="logo w3-bar-item w3-mobile" (click)="toggleMenu()">
+      <img src="/assets/img/logo-white.svg" alt="Angelus Domini" />
+    </a>
+
+    <!-- <a class="w3-bar-item w3-button w3-mobile"
+    (click)="toggleMenu()"
+    [routerLink]="['/home']"
+    [routerLinkActive]="['active']">
+      <mat-icon>home</mat-icon>
+      <span>{{ 'MĀJAS' | translate }}</span>
+    </a> -->
+
+    <a class="w3-bar-item w3-button w3-mobile"
+    (click)="toggleMenu()"
+    [routerLink]="['/galery']"
+    [routerLinkActive]="['active']">
+      <mat-icon>photo_library</mat-icon>
+      <span>{{ 'GALERIJA' | translate }}</span>
+    </a>
+
+    <a class="w3-bar-item w3-button w3-mobile"
+    (click)="toggleMenu()"
+    [routerLink]="['/videos']"
+    [routerLinkActive]="['active']">
+      <mat-icon>video_library</mat-icon>
+      <span>{{ 'VIDEO' | translate }}</span>
+    </a>
+
+    <a class="w3-bar-item w3-button w3-mobile"
+    (click)="toggleMenu()"
+    [routerLink]="['/contacts']"
+    [routerLinkActive]="['active']">
+      <mat-icon>contacts</mat-icon>
+      <span>{{ 'KONTAKTI' | translate }}</span>
+    </a>
+
+    <!-- <div class="w3-dropdown-hover w3-right">
+      <button class="w3-button">
+        {{ selectedLangName }} <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="w3-dropdown-content w3-bar-block w3-white w3-card-4">
+        <a (click)="setLanguage('lv', 'Latviešu')" class="w3-bar-item w3-button w3-text-black">
+          Latviešu
+        </a>
+        <a (click)="setLanguage('ru', 'Русский')"class="w3-bar-item w3-button w3-text-black">
+          Русский
+        </a>
+      </div>
+    </div> -->
+  </div>
+
+
+
+</nav>

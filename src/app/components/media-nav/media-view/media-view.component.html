@@ -1,0 +1,44 @@
+<div *ngIf="selectedAlbum" class="overflow"></div>
+
+<div *ngIf="selectedAlbum" class="view-wrapper">
+  <div class="view-container">
+
+    <!-- close -->
+    <mat-icon class="close-icon" (click)="backToAlbum()">close</mat-icon>
+
+    <mat-tab-group
+      (swipeleft)="showNextPhoto()"
+      (swiperight)="showPreviousPhoto()"
+      [selectedIndex]="getSelectedIndex()"
+      [dynamicHeight]="true">
+      <mat-tab *ngFor="let item of selectedAlbum.data">
+        <div class="content" mat-swipe>
+
+          <div class="arrow arrow-left" (click)="showPreviousPhoto()">
+            <mat-icon>keyboard_arrow_left</mat-icon>
+          </div>
+
+          <!-- photo view -->
+          <img *ngIf="item.type === 'photo'" [src]="item.src" alt="">
+
+          <!-- video view -->
+          <div class="video-container" *ngIf="item.type === 'video'">
+            <div class="youtube-responsive-container">
+              <iframe
+                [src]="sanitizeUrl(item.src)"
+                frameborder="0"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+
+
+          <div class="arrow arrow-right" (click)="showNextPhoto()">
+            <mat-icon >keyboard_arrow_right</mat-icon>
+          </div>
+
+        </div>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

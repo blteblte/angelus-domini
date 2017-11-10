@@ -1,0 +1,33 @@
+@keyframes hoverAlbum {
+  0% {
+
+  }
+  100% {
+    transform: scale(1.03, 1.03)
+  }
+}
+
+.clickable {
+  outline: none;
+  cursor: pointer;
+}
+
+.clickable:hover {
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-name: hoverAlbum;
+  animation-duration: .2s;
+  z-index: 1;
+}
+
+
+.loader {
+  text-align: center;
+  padding-top: 30%;
+  margin-bottom: 60%;
+
+  mat-spinner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

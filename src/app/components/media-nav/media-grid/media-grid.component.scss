@@ -1,0 +1,58 @@
+@keyframes hoverImage {
+  0% {
+
+  }
+  100% {
+    transform: scale(1.05, 1.05);
+    box-shadow: 0 0 4px #fff;
+  }
+}
+mat-grid-tile:hover {
+  outline: 1px solid #E4E4E4;
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-name: hoverImage;
+  animation-duration: .4s;
+  z-index: 1;
+}
+
+@keyframes appearGrid {
+  0% {
+    opacity: 0;
+    transform: scale(0.9, 0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+.grid {
+  animation-direction: normal;
+  animation-fill-mode: forwards;
+  animation-name: appearGrid;
+  animation-duration: .6s;
+}
+
+.desc {
+  text-align: center;
+
+  .name {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+}
+
+.loader {
+  text-align: center;
+  padding-top: 30%;
+
+  mat-spinner {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,44 @@
+<div *ngIf="(mediaAlbums | async)">
+  <div *ngFor="let album of (mediaAlbums | async)">
+
+      <div class="w3-container">
+          <h2>{{ album.name }}</h2>
+          <h3>{{ album.description }}</h3>
+      </div>
+
+      <div class="w3-cell-row s3 w3-panel w3-border-bottom w3-padding-16" *ngFor="let video of album.data">
+          <div class="content" (click)="onVideoClick(album, video, $event)" >
+
+            <div class="w3-cell">
+              <img
+                [src]="video.thumbUrl"
+                [alt]="video.title"
+              />
+            </div>
+
+            <div class="w3-container s8 w3-cell w3-cell-middle w3-margin-16 w3-mobile">
+              <h4 class="title">
+                {{ video.title }}
+              </h4>
+              <h5 class="description">
+                {{ video.description }}
+              </h5>
+              <div class="published">
+                {{ getDateText(video.publishedAt) }}
+              </div>
+            </div>
+
+            <div class="w3-container w3-cell w3-cell-middle w3-right">
+              <a [href]="'https://www.youtube.com/watch?v=' + video.itemId"
+                target="__blank">
+                <div
+                  matTooltip="Skatīties video pakalpojumā YouTube"
+                  matTooltipPosition="left" class="youtube">
+                </div>
+              </a>
+            </div>
+
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+
+<div *ngIf="(mediaAlbums | async) && hasLoaded">
+  <div class="w3-third w3-mobile" *ngFor="let album of (mediaAlbums | async)">
+      <div class="w3-card-4 w3-margin clickable" [routerLink]="['media/photo', album.albumId]">
+      <img [src]="album.data[0].src" alt="" width="100%" />
+      <div class="w3-container">
+        <h4>
+          {{ album.name }}
+        </h4>
+        <p>
+          {{ album.description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="loader" *ngIf="!(mediaAlbums | async) || !hasLoaded">
+  <mat-spinner></mat-spinner>
+</div>
+
+<!-- <mat-grid-list *ngIf="(mediaAlbums | async) && hasLoaded" [cols]="columnCount" rowHeight="16:9">
+  <mat-grid-tile
+    *ngFor="let album of (mediaAlbums | async)"
+    [routerLink]="['media/photo', album.albumId]"
+  >
+    <div class="tile">
+
+      <div class="album-item">
+        <div class="preview">
+            <img [src]="album.data[0].src" alt="" width="100%" />
+        </div>
+        <div class="desc">
+          <div class="name">{{ album.name }}</div>
+          <div class="description">{{ album.description }}</div>
+        </div>
+      </div>
+
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<div class="loader" *ngIf="!(mediaAlbums | async) || !hasLoaded">
+  <mat-spinner></mat-spinner>
+</div> -->
