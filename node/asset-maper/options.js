@@ -11,6 +11,8 @@ const supportedExtensions = [
   , ".jpeg"
 ]
 
-module.exports.folderToScan = folderToScan
-module.exports.targetFolderName = targetFolderName
-module.exports.supportedExtensions = supportedExtensions
+module.exports = {
+  folderToScan,
+  targetFolderName,
+  supportedExtensions
+}

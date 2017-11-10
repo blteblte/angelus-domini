@@ -8,11 +8,12 @@ const strTargetFolderName = colors.bold(colors.cyan(`'${targetFolderName}'`))
 const strFolderToScan = colors.bold(colors.cyan(`'${folderToScan}*'`))
 
 /* starting point */
-function MapAssets() {
-  console.log(`...${strName} version ${version}. Scanning for ${strTargetFolderName} folders in ${strFolderToScan}`)
-  createAssetMapings(folderToScan).then((r) => {
-    console.log(`...${strName} updated ${counter.filesUpdated} files. ${colors.blue('Done')} ${counter.filesUpdated === 0 ? colors.blue('- no changes detected') : ''}`)
-  })
+async function MapAssets() {
+  const resetColor = '\x1b[0m'
+  console.log(`${resetColor}...${strName} version ${version}. Scanning for ${strTargetFolderName} folders in ${strFolderToScan}${resetColor}`)
+  await createAssetMapings(folderToScan)
+  const strUpdateResult = counter.filesUpdated === 0 ? colors.blue('- no changes detected') : ''
+  console.log(`${resetColor}...${strName} updated ${counter.filesUpdated} files. ${colors.blue('Done')} ${strUpdateResult}${resetColor}\n`)
 }
 
-module.exports.MapAssets = MapAssets
+module.exports = { MapAssets }

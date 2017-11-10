@@ -21,14 +21,15 @@ function getLocalIp(ipMatchArr) {
 }
 
 async function launchDevServer(address) {
-  const port = process.env.port || 4200;
-  const publicHostname = address + ":" + port;
-  console.log(`${lv()} ${colors.green('@ WEB Resorts')}: access your NG LIVE DEV server on \x1b[33m http://${publicHostname} \x1b[0m ${lv()}`);
-  // showInfo();
-  const spawnOptions = { stdio: 'inherit', shell: true }
 
   /* map assets before build */
   // await MapAssets()
+
+  const port = process.env.port || 4200;
+  const publicHostname = address + ":" + port;
+  console.log(`${lv()} ${colors.green('@ WEB Resorts')}: access your NG LIVE DEV server on \x1b[33m http://${publicHostname} \x1b[0m ${lv()}`);
+  showInfo();
+  const spawnOptions = { stdio: 'inherit', shell: true }
 
   spawn(
       "ng serve"
@@ -41,14 +42,14 @@ async function launchDevServer(address) {
 }
 
 function lv() {
-  return `${colors.red('▮▮▮')}${colors.white('▮▮')}${colors.red('▮▮▮')}`
+  return `${colors.red('▮ ▮ ▮')}${colors.white(' ▮ ▮ ')}${colors.red('▮ ▮ ▮')}`
 }
 
 function showInfo() {
   console.log(colors.gray('*** For better development experience install the following chrome extensions:'));
   console.log(colors.gray(' - Redux DevTools:', 'https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd'));
-  console.log(colors.gray(' - Apollo Client Developer Tools:', 'https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm'));
+  // console.log(colors.gray(' - Apollo Client Developer Tools:', 'https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm'));
 }
 
 /* execute */
-launchDevServer(getLocalIp(['192.168.1.', '192.168.0.', '10.211.55.']));
+launchDevServer(getLocalIp(['192.168.1.', '192.168.0.']));
